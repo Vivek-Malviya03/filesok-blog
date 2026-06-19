@@ -83,5 +83,9 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 			</article>
 		</main>
 		<Footer />
-	</body>
+		<script>
+      import { inject } from '@vercel/analytics';
+      inject();
+    </script>
+  </body>
 </html>
