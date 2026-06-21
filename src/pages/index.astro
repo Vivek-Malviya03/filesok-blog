@@ -1,154 +1,50 @@
 ---
-import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import BlogCard from '../components/BlogCard.astro';
-import '../styles/global.css';
+import { getCollection } from 'astro:content';
 
-const posts = (await getCollection('blog'))
-  .filter(post => !post.data.draft)
-  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>FilesOk Blog | Tips, Guides & Insights</title>
-  <meta name="description" content="Tips, guides, and insights on file compression and privacy. Learn best practices for image resizing, PDF handling, and secure file processing." />
-  
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://filesok-blog.vercel.app" />
-  <meta property="og:title" content="FilesOk Blog" />
-  <meta property="og:description" content="Tips, guides, and insights on file compression and privacy." />
-  
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="FilesOk Blog" />
-  <meta name="twitter:description" content="Tips, guides, and insights on file compression and privacy." />
-
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-</head>
-<body>
-  <Header />
-
-  <main class="blog-home">
-    <section class="hero">
-      <div class="hero-content fade-up">
-        <h1 class="hero-title">File Tools That Actually Work</h1>
-        <p class="hero-subtitle">Tips, guides, and insights on file compression and privacy. Everything you need to master image resizing, PDF handling, and secure file processing.</p>
-        <a href="https://filesok.com" class="hero-cta">Open FilesOk →</a>
-      </div>
-    </section>
-
-    <section class="posts-grid">
-      <div class="posts-header fade-up">
-        <h2>Latest Articles</h2>
-        <p>{posts.length} posts published</p>
-      </div>
+  <head>
+    <BaseHead title="FilesOk | Blog" description="Latest updates and guides from FilesOk" />
+  </head>
+  <body class="selection:bg-blue-100 flex flex-col min-h-screen bg-slate-50 m-0 p-0 font-sans text-slate-800">
+    <Header />
+    
+    <main class="flex-grow w-full max-w-[960px] mx-auto px-4 md:px-6 py-12 md:py-20">
       
-      <div class="grid">
-        {posts.map(post => (
-          <BlogCard
+      <div class="text-center mb-12 md:mb-16 px-2">
+        <h1 class="text-[clamp(36px,8vw,56px)] font-extrabold text-slate-800 leading-[1.1] tracking-tight mb-4">
+          The FilesOk <span class="text-blue-600">Blog.</span>
+        </h1>
+
+        <p class="text-[clamp(15px,4vw,18px)] text-slate-500 max-w-[540px] mx-auto leading-relaxed">
+          Updates, guides, and technical insights on secure, client-side file processing.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {posts.map((post) => (
+          <BlogCard 
             title={post.data.title}
             description={post.data.description}
             pubDate={post.data.pubDate}
-            slug={post.id}
-            tags={post.data.tags}
-            readingMins={post.data.readingMins}
+            slug={post.id || post.slug} 
+            tags={post.data.tags || ['guide']}
+            readingMins={post.data.readingMins || 3}
           />
         ))}
       </div>
+      
+    </main>
 
-      {posts.length === 0 && (
-        <div class="empty-state">
-          <p>No posts yet. Check back soon!</p>
-        </div>
-      )}
-    </section>
-  </main>
-
-  <Footer />
-
-  <style>
-    main {
-      min-height: calc(100vh - 200px);
-    }
-    .hero {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 80px 24px 60px;
-      text-align: center;
-    }
-    .hero-content {
-      max-width: 620px;
-      margin: 0 auto;
-    }
-    .hero-title {
-      font-size: clamp(36px, 7vw, 52px);
-      font-weight: 800;
-      letter-spacing: -0.6px;
-      line-height: 1.15;
-      color: var(--gray-dark);
-      margin: 0 0 16px;
-    }
-    .hero-subtitle {
-      font-size: 17px;
-      color: var(--gray-mid);
-      line-height: 1.75;
-      margin: 0 0 32px;
-    }
-    .hero-cta {
-      display: inline-block;
-      background: var(--blue-main);
-      color: var(--white);
-      font-weight: 700;
-      font-size: 15px;
-      padding: 13px 32px;
-      border-radius: 12px;
-      transition: all 0.2s ease;
-    }
-    .hero-cta:hover {
-      background: var(--blue-dark);
-      transform: translateY(-1px);
-    }
-
-    .posts-grid {
-      max-width: 880px;
-      margin: 0 auto;
-      padding: 0 24px 60px;
-    }
-    .posts-header {
-      margin-bottom: 40px;
-    }
-    .posts-header h2 {
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--gray-dark);
-      margin: 0 0 8px;
-    }
-    .posts-header p {
-      font-size: 14px;
-      color: var(--gray-mid);
-      margin: 0;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 24px;
-    }
-
-    .empty-state {
-      text-align: center;
-      padding: 60px 24px;
-      color: var(--gray-mid);
-    }
-
-    @media (max-width: 640px) {
-      .hero { padding: 60px 16px 40px; }
-      .grid { grid-template-columns: 1fr; }
-    }
-  </style>
-</body>
+    <Footer />
+  </body>
 </html>
