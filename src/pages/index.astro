@@ -1,49 +1,154 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
+import { getCollection } from 'astro:content';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Footer from '../components/Footer.astro';
+import BlogCard from '../components/BlogCard.astro';
+import '../styles/global.css';
+
+const posts = (await getCollection('blog'))
+  .filter(post => !post.data.draft)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>FilesOk Blog | Tips, Guides & Insights</title>
+  <meta name="description" content="Tips, guides, and insights on file compression and privacy. Learn best practices for image resizing, PDF handling, and secure file processing." />
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://filesok-blog.vercel.app" />
+  <meta property="og:title" content="FilesOk Blog" />
+  <meta property="og:description" content="Tips, guides, and insights on file compression and privacy." />
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="FilesOk Blog" />
+  <meta name="twitter:description" content="Tips, guides, and insights on file compression and privacy." />
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <Header />
+
+  <main class="blog-home">
+    <section class="hero">
+      <div class="hero-content fade-up">
+        <h1 class="hero-title">File Tools That Actually Work</h1>
+        <p class="hero-subtitle">Tips, guides, and insights on file compression and privacy. Everything you need to master image resizing, PDF handling, and secure file processing.</p>
+        <a href="https://filesok.com" class="hero-cta">Open FilesOk →</a>
+      </div>
+    </section>
+
+    <section class="posts-grid">
+      <div class="posts-header fade-up">
+        <h2>Latest Articles</h2>
+        <p>{posts.length} posts published</p>
+      </div>
+      
+      <div class="grid">
+        {posts.map(post => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            pubDate={post.data.pubDate}
+            slug={post.id}
+            tags={post.data.tags}
+            readingMins={post.data.readingMins}
+          />
+        ))}
+      </div>
+
+      {posts.length === 0 && (
+        <div class="empty-state">
+          <p>No posts yet. Check back soon!</p>
+        </div>
+      )}
+    </section>
+  </main>
+
+  <Footer />
+
+  <style>
+    main {
+      min-height: calc(100vh - 200px);
+    }
+    .hero {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 80px 24px 60px;
+      text-align: center;
+    }
+    .hero-content {
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .hero-title {
+      font-size: clamp(36px, 7vw, 52px);
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      line-height: 1.15;
+      color: var(--gray-dark);
+      margin: 0 0 16px;
+    }
+    .hero-subtitle {
+      font-size: 17px;
+      color: var(--gray-mid);
+      line-height: 1.75;
+      margin: 0 0 32px;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: var(--blue-main);
+      color: var(--white);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 32px;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+    }
+    .hero-cta:hover {
+      background: var(--blue-dark);
+      transform: translateY(-1px);
+    }
+
+    .posts-grid {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 24px 60px;
+    }
+    .posts-header {
+      margin-bottom: 40px;
+    }
+    .posts-header h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--gray-dark);
+      margin: 0 0 8px;
+    }
+    .posts-header p {
+      font-size: 14px;
+      color: var(--gray-mid);
+      margin: 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 60px 24px;
+      color: var(--gray-mid);
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 60px 16px 40px; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</body>
 </html>
