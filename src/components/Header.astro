@@ -1,103 +1,23 @@
 ---
-const navItems = [
-  { label: 'Blog', href: '/' },
-  { label: 'Tools', href: 'https://filesok.com', external: true },
-];
+import Logo from './Logo.astro';
 ---
 
-<header class="site-header">
-  <div class="header-inner">
-    <a href="https://filesok.com" class="logo-link">
-      <svg width="32" height="32" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#1E3A8A" />
-            <stop offset="100%" stop-color="#2563EB" />
-          </linearGradient>
-          <linearGradient id="fileGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stop-color="#FFFFFF" />
-            <stop offset="100%" stop-color="#F8FAFC" />
-          </linearGradient>
-        </defs>
-        <rect width="512" height="512" rx="116" fill="url(#bgGrad)" />
-        <path d="M 176 116 C 160 116 146 130 146 146 L 146 366 C 146 382 160 396 176 396 L 336 396 C 352 396 366 382 366 366 L 366 196 L 286 116 Z" fill="url(#fileGrad)" />
-        <rect x="196" y="236" width="60" height="14" rx="7" fill="#1E40AF" />
-        <rect x="196" y="276" width="120" height="14" rx="7" fill="#2563EB" />
-      </svg>
-      <span class="logo-text">Files<span class="logo-accent">Ok</span><span class="logo-suffix">/blog</span></span>
+<nav class="bg-white border-b-[4px] border-blue-600 sticky top-0 z-40">
+  <div class="max-w-[1200px] mx-auto px-4 md:px-6 h-[72px] flex items-center justify-between">
+    
+    <a href="https://filesok.com" class="flex items-center gap-2 md:gap-3 cursor-pointer no-underline">
+      <Logo size={36} />
+      <span class="text-[22px] font-[800] text-slate-800 tracking-[-0.5px]">Files<span class="text-blue-600">Ok</span></span>
     </a>
+    
+    <div class="flex items-center gap-6 md:gap-8">
+      <a href="https://filesok.com" class="text-[14px] font-[600] text-slate-500 hover:text-blue-600 transition-colors bg-transparent border-none cursor-pointer no-underline">
+        Tools ▾
+      </a>
+      <a href="https://filesok.com" class="text-[13px] font-[700] px-4 py-2 rounded-[10px] bg-blue-600 text-white border-none cursor-pointer hover:bg-blue-700 transition-colors no-underline inline-block">
+        Subscribe
+      </a>
+    </div>
 
-    <nav class="nav-links">
-      {navItems.map(item => (
-        <a href={item.href} class="nav-link" target={item.external ? '_blank' : undefined} rel={item.external ? 'noopener noreferrer' : undefined}>
-          {item.label}
-        </a>
-      ))}
-      <a href="https://filesok.com" class="nav-cta">Open App</a>
-    </nav>
   </div>
-</header>
-
-<style>
-  .site-header {
-    background: var(--white);
-    border-bottom: 4px solid var(--blue-main);
-    position: sticky;
-    top: 0;
-    z-index: 40;
-  }
-  .header-inner {
-    max-width: 880px;
-    margin: 0 auto;
-    padding: 0 24px;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .logo-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .logo-text {
-    font-size: 19px;
-    font-weight: 800;
-    color: var(--gray-dark);
-    letter-spacing: -0.4px;
-  }
-  .logo-accent { color: var(--blue-main); }
-  .logo-suffix {
-    color: var(--gray-light);
-    font-weight: 600;
-    font-size: 16px;
-  }
-  .nav-links {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  .nav-link {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--gray-mid);
-    transition: color 0.15s ease;
-  }
-  .nav-link:hover { color: var(--blue-main); }
-  .nav-cta {
-    font-size: 13px;
-    font-weight: 700;
-    padding: 9px 18px;
-    border-radius: 10px;
-    background: var(--blue-main);
-    color: var(--white);
-    transition: background 0.15s ease;
-  }
-  .nav-cta:hover { background: var(--blue-dark); }
-
-  @media (max-width: 540px) {
-    .logo-suffix { display: none; }
-    .nav-link { display: none; }
-    .header-inner { padding: 0 16px; }
-  }
-</style>
+</nav>

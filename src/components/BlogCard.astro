@@ -8,90 +8,21 @@ interface Props {
   readingMins: number;
 }
 const { title, description, pubDate, slug, tags, readingMins } = Astro.props;
-
 const formattedDate = pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 const primaryTag = tags?.[0] ?? 'guide';
 ---
-
-<a href={`/blog/${slug}`} class="blog-card">
-  <div class="card-top">
-    <span class="tag-chip">.{primaryTag}</span>
-    <span class="size-chip">{readingMins} min &middot; {(readingMins * 0.6).toFixed(1)}KB read</span>
+<a href={`/blog/${slug}`} class="group block bg-white border-2 border-slate-100 rounded-[28px] p-6 md:p-7 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-200 hover:-translate-y-1">
+  <div class="flex items-center justify-between mb-4">
+    <span class="inline-flex items-center bg-blue-50 text-blue-600 text-[10px] font-extrabold uppercase tracking-widest py-1.5 px-3 rounded-full border border-blue-100">.{primaryTag}</span>
+    <span class="text-[11px] font-bold text-slate-400 font-mono">{readingMins} min &middot; {(readingMins * 0.6).toFixed(1)}KB</span>
   </div>
-  <h2 class="card-title">{title}</h2>
-  <p class="card-desc">{description}</p>
-  <div class="card-footer">
-    <span class="card-date">{formattedDate}</span>
-    <span class="card-arrow">Read article &rarr;</span>
+  <h2 class="text-xl font-extrabold text-slate-800 tracking-tight mb-2 leading-snug group-hover:text-blue-600 transition-colors">{title}</h2>
+  <p class="text-sm text-slate-500 leading-relaxed mb-6 line-clamp-3">{description}</p>
+  <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wide">{formattedDate}</span>
+    <span class="text-sm font-bold text-blue-600 flex items-center gap-1 group-hover:gap-2 transition-all">
+      Read article
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+    </span>
   </div>
 </a>
-
-<style>
-  .blog-card {
-    display: block;
-    background: var(--white);
-    border: 1.5px solid var(--gray-border);
-    border-radius: 20px;
-    padding: 28px;
-    transition: all 0.2s ease;
-  }
-  .blog-card:hover {
-    border-color: var(--blue-main);
-    box-shadow: 0 8px 24px rgba(37,99,235,0.1);
-    transform: translateY(-2px);
-  }
-  .card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 14px;
-  }
-  .tag-chip {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--blue-main);
-    background: var(--blue-pale);
-    border: 1px solid var(--blue-border);
-    padding: 4px 10px;
-    border-radius: 8px;
-    text-transform: uppercase;
-  }
-  .size-chip {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--gray-mid);
-  }
-  .card-title {
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--gray-dark);
-    letter-spacing: -0.3px;
-    margin: 0 0 10px;
-    line-height: 1.3;
-  }
-  .card-desc {
-    font-size: 14px;
-    color: var(--gray-mid);
-    line-height: 1.6;
-    margin: 0 0 20px;
-  }
-  .card-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid var(--gray-pale);
-    padding-top: 16px;
-  }
-  .card-date {
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--gray-light);
-  }
-  .card-arrow {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--blue-main);
-  }
-</style>
