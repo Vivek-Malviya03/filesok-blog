@@ -1,50 +1,191 @@
 ---
-import Logo from './Logo.astro';
+const year = new Date().getFullYear();
 ---
 
-<footer class="border-t-[4px] border-blue-600 bg-slate-800 py-10 px-6 text-center md:text-left mt-auto">
-  <div class="max-w-[1000px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-10 text-white/80">
-    
-    <div class="flex flex-col items-center md:items-start space-y-4">
-      <div class="flex items-center gap-2">
-        <Logo size={28} />
-        <span class="text-lg font-extrabold text-white">Files<span class="text-blue-200">Ok</span></span>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+
+      <!-- COL 1: Brand -->
+      <div class="footer-col">
+        <div class="footer-brand">
+          <svg width="28" height="28" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;width:28px;height:28px;">
+            <defs>
+              <linearGradient id="fbg" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#1E3A8A"/>
+                <stop offset="100%" stop-color="#2563EB"/>
+              </linearGradient>
+              <linearGradient id="ffg" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#FFFFFF"/>
+                <stop offset="100%" stop-color="#F8FAFC"/>
+              </linearGradient>
+            </defs>
+            <rect width="512" height="512" rx="116" fill="url(#fbg)"/>
+            <path d="M176 116C160 116 146 130 146 146L146 366C146 382 160 396 176 396L336 396C352 396 366 382 366 366L366 196L286 116Z" fill="url(#ffg)"/>
+            <path d="M286 116L286 176C286 187 295 196 306 196L366 196Z" fill="#E2E8F0"/>
+            <rect x="196" y="236" width="60" height="14" rx="7" fill="#1E40AF"/>
+            <rect x="196" y="276" width="120" height="14" rx="7" fill="#2563EB"/>
+            <rect x="196" y="316" width="85" height="14" rx="7" fill="#93C5FD"/>
+          </svg>
+          <span class="brand-text">Files<span class="brand-blue">Ok</span></span>
+        </div>
+        <p class="brand-desc">Tips, guides, and insights on file compression and privacy — from the team building FilesOk.</p>
       </div>
-      <p class="text-xs text-white/55 leading-relaxed max-w-xs m-0">Secure and high-performance file utilities designed with a privacy-first approach.</p>
+
+      <!-- COL 2: Image Tools -->
+      <div class="footer-col">
+        <div class="footer-col-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;width:16px;height:16px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          Image Tools
+        </div>
+        <ul class="footer-links">
+          <li><a href="https://filesok.com/okimg/compress-image">Compress Image</a></li>
+          <li><a href="https://filesok.com/okimg/compress-to-kb">Compress to KB</a></li>
+          <li><a href="https://filesok.com/okimg/resize-image">Resize Image</a></li>
+          <li><a href="https://filesok.com/okimg/merge-images">Merge Images</a></li>
+        </ul>
+      </div>
+
+      <!-- COL 3: PDF Tools -->
+      <div class="footer-col">
+        <div class="footer-col-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;width:16px;height:16px;"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/></svg>
+          PDF Tools
+        </div>
+        <ul class="footer-links">
+          <li><a href="https://filesok.com/okpdf/jpg-to-pdf">JPG to PDF</a></li>
+          <li><a href="https://filesok.com/okpdf/compress-pdf">Compress PDF</a></li>
+          <li><a href="https://filesok.com/okpdf/pdf-to-jpg">PDF to JPG</a></li>
+        </ul>
+      </div>
+
+      <!-- COL 4: Resources -->
+      <div class="footer-col">
+        <div class="footer-col-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;width:16px;height:16px;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Resources
+        </div>
+        <ul class="footer-links">
+          <li><a href="https://filesok.com">FilesOk App</a></li>
+          <li><a href="/">Blog Home</a></li>
+          <li><a href="https://filesok.com">Privacy Policy</a></li>
+          <li><a href="https://filesok.com">Terms of Service</a></li>
+        </ul>
+      </div>
+
     </div>
 
-    <div class="flex flex-col items-center md:items-start">
-      <div class="text-sm md:text-base font-extrabold text-white tracking-[2px] mb-5 flex items-center gap-2">
-        <svg class="w-4 h-4 text-blue-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg> 
-        Image Tools
+    <div class="footer-bottom">
+      <p class="footer-copy">© {year} FilesOk · Local Sandboxed Webtool</p>
+      <div class="footer-bottom-links">
+        <a href="https://filesok.com">Privacy Policy</a>
+        <a href="https://filesok.com">Terms of Service</a>
       </div>
-      <ul class="space-y-2 text-xs text-white/60 m-0 p-0 list-none">
-        <li><a href="https://filesok.com/okimg/compress-image" class="hover:text-blue-300 transition-colors no-underline">Compress Image</a></li>
-        <li><a href="https://filesok.com/okimg/compress-to-kb" class="hover:text-blue-300 transition-colors no-underline">Compress to KB</a></li>
-        <li><a href="https://filesok.com/okimg/resize-image" class="hover:text-blue-300 transition-colors no-underline">Resize Image</a></li>
-        <li><a href="https://filesok.com/okimg/merge-images" class="hover:text-blue-300 transition-colors no-underline">Merge Images</a></li>
-      </ul>
-    </div>
-
-    <div class="flex flex-col items-center md:items-start">
-      <div class="text-sm md:text-base font-extrabold text-white tracking-[2px] mb-5 flex items-center gap-2">
-        <svg class="w-4 h-4 text-blue-400 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg> 
-        PDF Tools
-      </div>
-      <ul class="space-y-2 text-xs text-white/60 m-0 p-0 list-none">
-        <li><a href="https://filesok.com/okpdf/jpg-to-pdf" class="hover:text-blue-300 transition-colors no-underline">JPG to PDF</a></li>
-        <li><a href="https://filesok.com/okpdf/compress-pdf" class="hover:text-blue-300 transition-colors no-underline">Compress PDF</a></li>
-        <li><a href="https://filesok.com/okpdf/pdf-to-jpg" class="hover:text-blue-300 transition-colors no-underline">PDF to JPG</a></li>
-      </ul>
-    </div>
-
-  </div>
-  
-  <div class="max-w-[1200px] mx-auto border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-    <p class="text-[10px] md:text-[11px] text-white/40 font-bold uppercase tracking-[2px] m-0">© 2026 FilesOk · Local Sandboxed Webtool</p>
-    <div class="flex gap-5 text-[10px] md:text-[11px] text-white/40 font-bold uppercase tracking-[1.5px]">
-      <a href="https://filesok.com" class="hover:text-white transition-colors no-underline text-inherit">Privacy Policy</a>
-      <a href="https://filesok.com" class="hover:text-white transition-colors no-underline text-inherit">Terms of Service</a>
     </div>
   </div>
 </footer>
+
+<style>
+  .site-footer {
+    border-top: 4px solid #2563EB;
+    background: #1E293B;
+    padding: 48px 24px 32px;
+    margin-top: auto;
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .footer-col {}
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .brand-text {
+    font-size: 18px;
+    font-weight: 800;
+    color: #fff;
+  }
+  .brand-blue { color: #BFDBFE; }
+  .brand-desc {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    line-height: 1.7;
+    max-width: 240px;
+    margin: 0;
+  }
+  .footer-col-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-links a {
+    font-size: 13px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.15s;
+    font-weight: 500;
+  }
+  .footer-links a:hover { color: #93C5FD; }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-copy {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin: 0;
+  }
+  .footer-bottom-links {
+    display: flex;
+    gap: 20px;
+  }
+  .footer-bottom-links a {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.3);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: color 0.15s;
+  }
+  .footer-bottom-links a:hover { color: #93C5FD; }
+
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+  }
+  @media (max-width: 480px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+  }
+</style>
