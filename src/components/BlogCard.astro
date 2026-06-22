@@ -11,18 +11,102 @@ const { title, description, pubDate, slug, tags, readingMins } = Astro.props;
 const formattedDate = pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 const primaryTag = tags?.[0] ?? 'guide';
 ---
-<a href={`/blog/${slug}`} class="group block bg-white border-2 border-slate-100 rounded-[28px] p-6 md:p-7 shadow-sm hover:shadow-lg hover:border-blue-200 transition-all duration-200 hover:-translate-y-1">
-  <div class="flex items-center justify-between mb-4">
-    <span class="inline-flex items-center bg-blue-50 text-blue-600 text-[10px] font-extrabold uppercase tracking-widest py-1.5 px-3 rounded-full border border-blue-100">.{primaryTag}</span>
-    <span class="text-[11px] font-bold text-slate-400 font-mono">{readingMins} min &middot; {(readingMins * 0.6).toFixed(1)}KB</span>
+
+<a href={`/blog/${slug}`} class="blog-card">
+  <div class="card-top">
+    <span class="tag-chip">.{primaryTag}</span>
+    <span class="size-chip">{readingMins} min · {(readingMins * 0.6).toFixed(1)}KB</span>
   </div>
-  <h2 class="text-xl font-extrabold text-slate-800 tracking-tight mb-2 leading-snug group-hover:text-blue-600 transition-colors">{title}</h2>
-  <p class="text-sm text-slate-500 leading-relaxed mb-6 line-clamp-3">{description}</p>
-  <div class="flex items-center justify-between pt-4 border-t border-slate-100">
-    <span class="text-[11px] font-bold text-slate-400 uppercase tracking-wide">{formattedDate}</span>
-    <span class="text-sm font-bold text-blue-600 flex items-center gap-1 group-hover:gap-2 transition-all">
+  <h2 class="card-title">{title}</h2>
+  <p class="card-desc">{description}</p>
+  <div class="card-footer">
+    <span class="card-date">{formattedDate}</span>
+    <span class="card-read">
       Read article
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
     </span>
   </div>
 </a>
+
+<style>
+  .blog-card {
+    display: block;
+    background: #fff;
+    border: 2px solid #F1F5F9;
+    border-radius: 28px;
+    padding: 28px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .blog-card:hover {
+    border-color: #BFDBFE;
+    box-shadow: 0 8px 24px rgba(37,99,235,0.1);
+    transform: translateY(-3px);
+  }
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .tag-chip {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #2563EB;
+    background: #EFF6FF;
+    border: 1px solid #BFDBFE;
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+  .size-chip {
+    font-size: 11px;
+    font-weight: 700;
+    color: #94A3B8;
+    font-family: 'DM Mono', monospace;
+  }
+  .card-title {
+    font-size: 19px;
+    font-weight: 800;
+    color: #1E293B;
+    letter-spacing: -0.3px;
+    line-height: 1.3;
+    margin: 0 0 10px;
+    transition: color 0.15s;
+  }
+  .blog-card:hover .card-title { color: #2563EB; }
+  .card-desc {
+    font-size: 14px;
+    color: #64748B;
+    line-height: 1.65;
+    margin: 0 0 20px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid #F1F5F9;
+    padding-top: 16px;
+  }
+  .card-date {
+    font-size: 11px;
+    font-weight: 700;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .card-read {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2563EB;
+  }
+</style>
