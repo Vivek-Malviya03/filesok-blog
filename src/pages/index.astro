@@ -9,55 +9,58 @@ const posts = (await getCollection('blog'))
   .filter(post => !post.data.draft)
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FilesOk Blog | Tips, Guides & Insights</title>
-  <meta name="description" content="Tips, guides, and insights on file compression and privacy." />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="description" content="Tips, guides, and insights on file compression and privacy."/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <Header />
-
-  <main class="main-wrap">
+  <Header/>
+  <main style="max-width:960px;margin:0 auto;padding:48px 24px 60px;">
 
     <!-- HERO -->
-    <div class="hero fade-up">
-      <div class="badge-pill">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    <div style="text-align:center;margin-bottom:56px;" class="fade-up">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#EFF6FF;border:1px solid #BFDBFE;border-radius:999px;padding:6px 16px;font-size:13px;font-weight:700;color:#2563EB;margin-bottom:24px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" style="width:14px;height:14px;flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Privacy-First · File Intelligence
       </div>
-      <h1 class="hero-title">The FilesOk<br/><span class="blue">Publication.</span></h1>
-      <p class="hero-sub">Tips, guides, and insights on file compression and privacy.<br/><span class="blue-semi">Everything you need to master your files.</span></p>
-      <div class="trust-row">
-        <span class="trust-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <h1 style="font-size:clamp(36px,8vw,56px);font-weight:800;color:#1E293B;line-height:1.1;letter-spacing:-1px;margin:0 0 16px;">
+        The FilesOk<br/><span style="color:#2563EB;">Publication.</span>
+      </h1>
+      <p style="font-size:clamp(15px,4vw,18px);color:#64748B;line-height:1.7;margin:0 0 28px;max-width:500px;margin-left:auto;margin-right:auto;">
+        Tips, guides, and insights on file compression and privacy.<br/>
+        <span style="color:#2563EB;font-weight:600;">Everything you need to master your files.</span>
+      </p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:24px;">
+        <span style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#64748B;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           Practical Guides
         </span>
-        <span class="trust-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"><path d="M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2z"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#64748B;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;"><path d="M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2z"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
           Privacy Deep-Dives
         </span>
-        <span class="trust-item">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span style="display:flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#64748B;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           Tool Comparisons
         </span>
       </div>
     </div>
 
-    <!-- POSTS GRID -->
-    <div class="section fade-up">
-      <div class="section-header">
-        <div class="section-title">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+    <!-- POSTS SECTION -->
+    <div style="margin-bottom:48px;" class="fade-up">
+      <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid #E2E8F0;padding-bottom:12px;margin-bottom:24px;">
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:800;color:#1E293B;text-transform:uppercase;letter-spacing:0.15em;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2" stroke-linecap="round" style="width:20px;height:20px;flex-shrink:0;"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
           Latest Articles
         </div>
-        <span class="post-count">{posts.length} posts published</span>
+        <span style="font-size:12px;font-weight:700;color:#94A3B8;">{posts.length} posts published</span>
       </div>
-      <div class="posts-grid">
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;">
         {posts.map(post => (
           <BlogCard
             title={post.data.title}
@@ -69,59 +72,20 @@ const posts = (await getCollection('blog'))
           />
         ))}
       </div>
-      {posts.length === 0 && <p class="empty">No posts yet. Check back soon!</p>}
     </div>
 
     <!-- CTA BANNER -->
-    <div class="cta-banner fade-up">
-      <p class="cta-label">Free · No sign-up · Private</p>
-      <h2 class="cta-title">Ready to compress your files?</h2>
-      <p class="cta-sub">All processing happens on your device. No uploads, no tracking, completely private.</p>
-      <a href="https://filesok.com" class="cta-btn">
+    <div style="background:#1E293B;border-radius:32px;padding:48px 32px;text-align:center;" class="fade-up">
+      <p style="font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.15em;color:#93C5FD;margin:0 0 14px;">Free · No sign-up · Private</p>
+      <h2 style="font-size:clamp(22px,4vw,32px);font-weight:800;color:#fff;margin:0 0 12px;letter-spacing:-0.5px;">Ready to compress your files?</h2>
+      <p style="font-size:15px;color:#94A3B8;line-height:1.6;margin:0 auto 28px;max-width:400px;">All processing happens on your device. No uploads, no tracking, completely private.</p>
+      <a href="https://filesok.com" style="display:inline-flex;align-items:center;gap:8px;background:#2563EB;color:#fff;font-weight:700;font-size:14px;padding:14px 28px;border-radius:16px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='#1D4ED8'" onmouseout="this.style.background='#2563EB'">
         Open FilesOk Free
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="width:16px;height:16px;"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </div>
 
   </main>
-
-  <Footer />
+  <Footer/>
 </body>
 </html>
-
-<style>
-  body { background: #F8FAFC; }
-  .main-wrap { max-width: 960px; margin: 0 auto; padding: 40px 24px 60px; }
-
-  /* HERO */
-  .hero { text-align: center; margin-bottom: 56px; }
-  .badge-pill { display: inline-flex; align-items: center; gap: 8px; background: #EFF6FF; border: 1px solid #BFDBFE; border-radius: 999px; padding: 6px 16px; font-size: 13px; font-weight: 700; color: #2563EB; margin-bottom: 24px; }
-  .hero-title { font-size: clamp(36px, 8vw, 56px); font-weight: 800; color: #1E293B; line-height: 1.1; letter-spacing: -1px; margin: 0 0 16px; }
-  .blue { color: #2563EB; }
-  .hero-sub { font-size: clamp(15px, 4vw, 18px); color: #64748B; line-height: 1.7; margin: 0 0 24px; }
-  .blue-semi { color: #2563EB; font-weight: 600; display: block; margin-top: 4px; }
-  .trust-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
-  .trust-item { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #64748B; }
-
-  /* SECTION */
-  .section { margin-bottom: 48px; }
-  .section-header { display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #E2E8F0; padding-bottom: 12px; margin-bottom: 24px; }
-  .section-title { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 800; color: #1E293B; text-transform: uppercase; letter-spacing: 0.15em; }
-  .post-count { font-size: 12px; font-weight: 700; color: #94A3B8; }
-  .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-  .empty { text-align: center; padding: 60px 0; color: #94A3B8; font-weight: 600; }
-
-  /* CTA BANNER */
-  .cta-banner { background: #1E293B; border-radius: 32px; padding: 48px 32px; text-align: center; }
-  .cta-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: #93C5FD; margin: 0 0 16px; }
-  .cta-title { font-size: clamp(22px, 4vw, 32px); font-weight: 800; color: #fff; margin: 0 0 12px; letter-spacing: -0.5px; }
-  .cta-sub { font-size: 15px; color: #94A3B8; margin: 0 0 28px; line-height: 1.6; max-width: 400px; margin-left: auto; margin-right: auto; }
-  .cta-btn { display: inline-flex; align-items: center; gap: 8px; background: #2563EB; color: #fff; font-weight: 700; font-size: 14px; padding: 14px 28px; border-radius: 16px; transition: background 0.2s; text-decoration: none; }
-  .cta-btn:hover { background: #1D4ED8; }
-
-  @media (max-width: 640px) {
-    .main-wrap { padding: 24px 16px 40px; }
-    .posts-grid { grid-template-columns: 1fr; }
-    .cta-banner { padding: 32px 20px; }
-  }
-</style>

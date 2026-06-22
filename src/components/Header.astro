@@ -1,76 +1,23 @@
----
-import Logo from './Logo.astro';
----
-<nav class="site-nav">
-  <div class="nav-inner">
-    <a href="/" class="nav-logo">
-      <Logo size={36} />
-      <span class="logo-text">Files<span class="logo-blue">Ok</span><span class="logo-suffix">/blog</span></span>
+<header style="background:#fff;border-bottom:4px solid #2563EB;position:sticky;top:0;z-index:40;">
+  <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;">
+    <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+      <svg width="36" height="36" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:36px;height:36px;flex-shrink:0;">
+        <defs>
+          <linearGradient id="hbg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1E3A8A"/><stop offset="100%" stop-color="#2563EB"/></linearGradient>
+          <linearGradient id="hfg" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#F8FAFC"/></linearGradient>
+        </defs>
+        <rect width="512" height="512" rx="116" fill="url(#hbg)"/>
+        <path d="M176 116C160 116 146 130 146 146L146 366C146 382 160 396 176 396L336 396C352 396 366 382 366 366L366 196L286 116Z" fill="url(#hfg)"/>
+        <path d="M286 116L286 176C286 187 295 196 306 196L366 196Z" fill="#E2E8F0"/>
+        <rect x="196" y="236" width="60" height="14" rx="7" fill="#1E40AF"/>
+        <rect x="196" y="276" width="120" height="14" rx="7" fill="#2563EB"/>
+        <rect x="196" y="316" width="85" height="14" rx="7" fill="#93C5FD"/>
+      </svg>
+      <span style="font-size:22px;font-weight:800;color:#1E293B;letter-spacing:-0.5px;font-family:'DM Sans',sans-serif;">Files<span style="color:#2563EB;">Ok</span><span style="color:#94A3B8;font-size:16px;font-weight:600;margin-left:2px;">/blog</span></span>
     </a>
-    <div class="nav-right">
-      <a href="https://filesok.com" class="nav-link">All Tools</a>
-      <a href="https://filesok.com" class="nav-cta">Open App</a>
+    <div style="display:flex;align-items:center;gap:20px;">
+      <a href="https://filesok.com" style="font-size:14px;font-weight:600;color:#64748B;transition:color 0.15s;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#64748B'">All Tools</a>
+      <a href="https://filesok.com" style="font-size:13px;font-weight:700;padding:9px 18px;border-radius:10px;background:#2563EB;color:#fff;transition:background 0.15s;" onmouseover="this.style.background='#1D4ED8'" onmouseout="this.style.background='#2563EB'">Open App</a>
     </div>
   </div>
-</nav>
-
-<style>
-  .site-nav {
-    background: #fff;
-    border-bottom: 4px solid #2563EB;
-    position: sticky;
-    top: 0;
-    z-index: 40;
-  }
-  .nav-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-  }
-  .logo-text {
-    font-size: 22px;
-    font-weight: 800;
-    color: #1E293B;
-    letter-spacing: -0.5px;
-  }
-  .logo-blue { color: #2563EB; }
-  .logo-suffix { color: #94A3B8; font-size: 16px; font-weight: 600; margin-left: 2px; }
-  .nav-right {
-    display: flex;
-    align-items: center;
-    gap: 24px;
-  }
-  .nav-link {
-    font-size: 14px;
-    font-weight: 600;
-    color: #64748B;
-    text-decoration: none;
-    transition: color 0.15s;
-  }
-  .nav-link:hover { color: #2563EB; }
-  .nav-cta {
-    font-size: 13px;
-    font-weight: 700;
-    padding: 9px 18px;
-    border-radius: 10px;
-    background: #2563EB;
-    color: #fff;
-    text-decoration: none;
-    transition: background 0.15s;
-  }
-  .nav-cta:hover { background: #1D4ED8; }
-  @media (max-width: 480px) {
-    .logo-suffix { display: none; }
-    .nav-link { display: none; }
-  }
-</style>
+</header>

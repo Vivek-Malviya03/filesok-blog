@@ -1,174 +1,80 @@
 ---
 const year = new Date().getFullYear();
 ---
+<footer style="border-top:4px solid #2563EB;background:#1E293B;padding:48px 24px 32px;margin-top:auto;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:40px;">
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-grid">
-
-      <div class="footer-col">
-        <div class="footer-brand">
-          <svg width="28" height="28" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;width:28px;height:28px;">
+      <!-- Brand -->
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+          <svg width="28" height="28" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:28px;height:28px;flex-shrink:0;">
             <defs>
-              <linearGradient id="fbg" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#1E3A8A"/>
-                <stop offset="100%" stop-color="#2563EB"/>
-              </linearGradient>
-              <linearGradient id="ffg" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stop-color="#FFFFFF"/>
-                <stop offset="100%" stop-color="#F8FAFC"/>
-              </linearGradient>
+              <linearGradient id="fbg2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1E3A8A"/><stop offset="100%" stop-color="#2563EB"/></linearGradient>
+              <linearGradient id="ffg2" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="100%" stop-color="#F8FAFC"/></linearGradient>
             </defs>
-            <rect width="512" height="512" rx="116" fill="url(#fbg)"/>
-            <path d="M176 116C160 116 146 130 146 146L146 366C146 382 160 396 176 396L336 396C352 396 366 382 366 366L366 196L286 116Z" fill="url(#ffg)"/>
+            <rect width="512" height="512" rx="116" fill="url(#fbg2)"/>
+            <path d="M176 116C160 116 146 130 146 146L146 366C146 382 160 396 176 396L336 396C352 396 366 382 366 366L366 196L286 116Z" fill="url(#ffg2)"/>
             <path d="M286 116L286 176C286 187 295 196 306 196L366 196Z" fill="#E2E8F0"/>
             <rect x="196" y="236" width="60" height="14" rx="7" fill="#1E40AF"/>
             <rect x="196" y="276" width="120" height="14" rx="7" fill="#2563EB"/>
             <rect x="196" y="316" width="85" height="14" rx="7" fill="#93C5FD"/>
           </svg>
-          <span class="brand-text">Files<span class="brand-blue">Ok</span></span>
+          <span style="font-size:18px;font-weight:800;color:#fff;font-family:'DM Sans',sans-serif;">Files<span style="color:#BFDBFE;">Ok</span></span>
         </div>
-        <p class="brand-desc">Tips, guides, and insights on file compression and privacy — from the team building FilesOk.</p>
+        <p style="font-size:12px;color:rgba(255,255,255,0.45);line-height:1.7;max-width:240px;">Tips, guides, and insights on file compression and privacy — from the team building FilesOk.</p>
       </div>
 
-      <div class="footer-col">
-        <div class="footer-col-title">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;width:16px;height:16px;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+      <!-- Image Tools -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;color:#fff;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;font-family:'DM Sans',sans-serif;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
           Image Tools
         </div>
-        <ul class="footer-links">
-          <li><a href="https://filesok.com/okimg/compress-image">Compress Image</a></li>
-          <li><a href="https://filesok.com/okimg/compress-to-kb">Compress to KB</a></li>
-          <li><a href="https://filesok.com/okimg/resize-image">Resize Image</a></li>
-          <li><a href="https://filesok.com/okimg/merge-images">Merge Images</a></li>
+        <ul style="display:flex;flex-direction:column;gap:10px;">
+          <li><a href="https://filesok.com/okimg/compress-image" style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:500;" onmouseover="this.style.color='#93C5FD'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Compress Image</a></li>
+          <li><a href="https://filesok.com/okimg/compress-to-kb" style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:500;" onmouseover="this.style.color='#93C5FD'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Compress to KB</a></li>
+          <li><a href="https://filesok.com/okimg/resize-image" style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:500;" onmouseover="this.style.color='#93C5FD'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Resize Image</a></li>
+          <li><a href="https://filesok.com/okimg/merge-images" style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:500;" onmouseover="this.style.color='#93C5FD'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Merge Images</a></li>
         </ul>
       </div>
 
-      <div class="footer-col">
-        <div class="footer-col-title">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" style="flex-shrink:0;width:16px;height:16px;"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/></svg>
+      <!-- PDF Tools -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;color:#fff;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;font-family:'DM Sans',sans-serif;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><path d="M14 2v6h6"/></svg>
           PDF Tools
         </div>
-        <ul class="footer-links">
-          <li><a href="https://filesok.com/okpdf/jpg-to-pdf">JPG to PDF</a></li>
-          <li><a href="https://filesok.com/okpdf/compress-pdf">Compress PDF</a></li>
-          <li><a href="https://filesok.com/okpdf/pdf-to-jpg">PDF to JPG</a></li>
+        <ul style="display:flex;flex-direction:column;gap:10px;">
+          <li><a href="https://filesok.com/okpdf/jpg-to-pdf" style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:500;" onmouseover="this.style.color='#93C5FD'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">JPG to PDF</a></li>
+          <li><a href="https://filesok.com/okpdf/compress-pdf" style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:500;" onmouseover="this.style.color='#93C5FD'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Compress PDF</a></li>
+          <li><a href="https://filesok.com/okpdf/pdf-to-jpg" style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:500;" onmouseover="this.style.color='#93C5FD'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">PDF to JPG</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources -->
+      <div>
+        <div style="display:flex;align-items:center;gap:8px;font-size:12px;font-weight:800;color:#fff;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:18px;font-family:'DM Sans',sans-serif;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#60A5FA" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Resources
+        </div>
+        <ul style="display:flex;flex-direction:column;gap:10px;">
+          <li><a href="https://filesok.com" style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:500;" onmouseover="this.style.color='#93C5FD'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">FilesOk App</a></li>
+          <li><a href="/" style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:500;" onmouseover="this.style.color='#93C5FD'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Blog Home</a></li>
+          <li><a href="https://filesok.com" style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:500;" onmouseover="this.style.color='#93C5FD'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Privacy Policy</a></li>
+          <li><a href="https://filesok.com" style="font-size:13px;color:rgba(255,255,255,0.5);font-weight:500;" onmouseover="this.style.color='#93C5FD'" onmouseout="this.style.color='rgba(255,255,255,0.5)'">Terms of Service</a></li>
         </ul>
       </div>
 
     </div>
 
-    <div class="footer-bottom">
-      <p class="footer-copy">© {year} FilesOk · Local Sandboxed Webtool</p>
-      <div class="footer-bottom-links">
-        <a href="https://filesok.com">Privacy Policy</a>
-        <a href="https://filesok.com">Terms of Service</a>
+    <!-- Bottom Row -->
+    <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+      <p style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.15em;">© {year} FilesOk · Local Sandboxed Webtool</p>
+      <div style="display:flex;gap:20px;">
+        <a href="https://filesok.com" style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.1em;" onmouseover="this.style.color='#93C5FD'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">Privacy Policy</a>
+        <a href="https://filesok.com" style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:0.1em;" onmouseover="this.style.color='#93C5FD'" onmouseout="this.style.color='rgba(255,255,255,0.3)'">Terms of Service</a>
       </div>
     </div>
   </div>
 </footer>
-
-<style>
-  .site-footer {
-    border-top: 4px solid #2563EB;
-    background: #1E293B;
-    padding: 48px 24px 32px;
-    margin-top: auto;
-  }
-  .footer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 40px;
-    margin-bottom: 40px;
-  }
-  .footer-col {}
-  .footer-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 14px;
-  }
-  .brand-text {
-    font-size: 18px;
-    font-weight: 800;
-    color: #fff;
-  }
-  .brand-blue { color: #BFDBFE; }
-  .brand-desc {
-    font-size: 12px;
-    color: rgba(255,255,255,0.45);
-    line-height: 1.7;
-    max-width: 280px;
-    margin: 0;
-  }
-  .footer-col-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    font-weight: 800;
-    color: #fff;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-  .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .footer-links a {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    text-decoration: none;
-    transition: color 0.15s;
-    font-weight: 500;
-  }
-  .footer-links a:hover { color: #93C5FD; }
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.08);
-    padding-top: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .footer-copy {
-    font-size: 11px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.3);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    margin: 0;
-  }
-  .footer-bottom-links {
-    display: flex;
-    gap: 20px;
-  }
-  .footer-bottom-links a {
-    font-size: 11px;
-    font-weight: 700;
-    color: rgba(255,255,255,0.3);
-    text-decoration: none;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    transition: color 0.15s;
-  }
-  .footer-bottom-links a:hover { color: #93C5FD; }
-
-  @media (max-width: 768px) {
-    .footer-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
-  }
-  @media (max-width: 480px) {
-    .footer-grid { grid-template-columns: 1fr; }
-    .footer-bottom { flex-direction: column; align-items: flex-start; }
-  }
-</style>

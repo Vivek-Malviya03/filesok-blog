@@ -1,36 +1,17 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* ... rest of your custom css ... */:root {
-  --blue-main: #2563EB;
-  --blue-dark: #1D4ED8;
-  --blue-pale: #EFF6FF;
-  --blue-border: #BFDBFE;
-  --white: #FFFFFF;
-  --off-white: #F8FAFC;
-  --warm-white: #F1F5F9;
-  --gray-dark: #1E293B;
-  --gray-mid: #64748B;
-  --gray-light: #CBD5E1;
-  --gray-pale: #E2E8F0;
-  --gray-border: #E2E8F0;
-}
-* { box-sizing: border-box; }
-html, body {
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #F8FAFC;
+  color: #1E293B;
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: 'DM Sans', sans-serif;
-  background: var(--off-white);
-  color: var(--gray-dark);
 }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; }
+ul { list-style: none; }
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(16px); }
-  to   { opacity: 1; transform: translateY(0); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .fade-up { animation: fadeUp 0.5s ease both; }
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--off-white); }
-::-webkit-scrollbar-thumb { background: var(--gray-light); border-radius: 3px; }
