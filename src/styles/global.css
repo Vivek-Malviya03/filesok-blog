@@ -1,4 +1,8 @@
-:root {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ... rest of your custom css ... */:root {
   --blue-main: #2563EB;
   --blue-dark: #1D4ED8;
   --blue-pale: #EFF6FF;
