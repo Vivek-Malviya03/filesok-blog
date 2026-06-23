@@ -1,6 +1,6 @@
-<header style="background:#fff;border-bottom:4px solid #2563EB;position:sticky;top:0;z-index:40;">
-  <div style="max-width:1200px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;justify-content:space-between;">
-    <a href="/blog" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="/blog" class="nav-logo">
       <svg width="36" height="36" viewBox="0 0 512 512" fill="none" style="width:36px;height:36px;flex-shrink:0;">
         <defs>
           <linearGradient id="hbg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#1E3A8A"/><stop offset="100%" stop-color="#2563EB"/></linearGradient>
@@ -13,11 +13,32 @@
         <rect x="196" y="276" width="120" height="14" rx="7" fill="#2563EB"/>
         <rect x="196" y="316" width="85" height="14" rx="7" fill="#93C5FD"/>
       </svg>
-      <span style="font-size:22px;font-weight:800;color:#1E293B;letter-spacing:-0.5px;font-family:'DM Sans',sans-serif;">Files<span style="color:#2563EB;">Ok</span><span style="color:#94A3B8;font-size:16px;font-weight:600;margin-left:2px;">/blog</span></span>
+      <span class="logo-text">Files<span class="logo-blue">Ok</span><span class="logo-suffix">/blog</span></span>
     </a>
-    <div style="display:flex;align-items:center;gap:20px;">
-      <a href="https://filesok.com" style="font-size:14px;font-weight:600;color:#64748B;" onmouseover="this.style.color='#2563EB'" onmouseout="this.style.color='#64748B'">All Tools</a>
-      <a href="https://filesok.com" style="font-size:13px;font-weight:700;padding:9px 18px;border-radius:10px;background:#2563EB;color:#fff;" onmouseover="this.style.background='#1D4ED8'" onmouseout="this.style.background='#2563EB'">Open App</a>
+    <div class="nav-right">
+      <a href="https://filesok.com" class="nav-link">All Tools</a>
+      <a href="https://filesok.com" class="nav-cta">Open App</a>
     </div>
   </div>
 </header>
+
+<style>
+  .site-header { background:#fff; border-bottom:4px solid #2563EB; position:sticky; top:0; z-index:40; }
+  .nav-inner { max-width:1200px; margin:0 auto; padding:0 20px; height:68px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .logo-text { font-size:20px; font-weight:800; color:#1E293B; letter-spacing:-0.5px; font-family:'DM Sans',sans-serif; }
+  .logo-blue { color:#2563EB; }
+  .logo-suffix { color:#94A3B8; font-size:14px; font-weight:600; margin-left:2px; }
+  .nav-right { display:flex; align-items:center; gap:16px; }
+  .nav-link { font-size:14px; font-weight:600; color:#64748B; text-decoration:none; transition:color 0.15s; }
+  .nav-link:hover { color:#2563EB; }
+  .nav-cta { font-size:13px; font-weight:700; padding:8px 16px; border-radius:10px; background:#2563EB; color:#fff; text-decoration:none; transition:background 0.15s; white-space:nowrap; }
+  .nav-cta:hover { background:#1D4ED8; }
+  @media (max-width:480px) {
+    .nav-inner { padding:0 16px; height:60px; }
+    .logo-suffix { display:none; }
+    .logo-text { font-size:18px; }
+    .nav-link { display:none; }
+    .nav-cta { font-size:12px; padding:7px 14px; }
+  }
+</style>
