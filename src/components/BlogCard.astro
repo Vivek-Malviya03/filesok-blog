@@ -11,7 +11,7 @@ const { title, description, pubDate, slug, tags, readingMins } = Astro.props;
 const formattedDate = pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 const primaryTag = tags?.[0] ?? 'guide';
 ---
-<a href={`/${slug}/`} class="blog-card">
+<a href={`/blog/${slug}/`} class="blog-card">
   <div class="card-top">
     <span class="tag-chip">.{primaryTag}</span>
     <span class="size-chip">{readingMins} min · {(readingMins * 0.6).toFixed(1)}KB</span>
