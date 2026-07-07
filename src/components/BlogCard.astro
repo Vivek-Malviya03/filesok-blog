@@ -10,8 +10,9 @@ interface Props {
 const { title, description, pubDate, slug, tags, readingMins } = Astro.props;
 const formattedDate = pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 const primaryTag = tags?.[0] ?? 'guide';
+const articleUrl = `/blog/${slug}/`;
 ---
-<a href={/blog/${slug}/} class="blog-card">
+<a href={articleUrl} class="blog-card">
   <div class="card-top">
     <span class="tag-chip">.{primaryTag}</span>
     <span class="size-chip">{readingMins} min · {(readingMins * 0.6).toFixed(1)}KB</span>
@@ -35,4 +36,9 @@ const primaryTag = tags?.[0] ?? 'guide';
   .card-footer{display:flex;align-items:center;justify-content:space-between;border-top:1px solid #F1F5F9;padding-top:14px}
   .card-date{font-size:11px;font-weight:700;color:#94A3B8;text-transform:uppercase;letter-spacing:0.05em}
   .card-read{font-size:13px;font-weight:700;color:#2563EB}
+  @media(max-width:480px){
+    .blog-card{padding:20px 18px}
+    .card-title{font-size:17px}
+    .card-desc{font-size:13px}
+  }
 </style>
