@@ -2,7 +2,9 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://filesok.com',
+  // 🚨 FIXED: Aligned to Vercel's true canonical domain
+  site: 'https://www.filesok.com', 
+  base: '/blog',
   output: 'static',
   build: {
     inlineStylesheets: 'always',

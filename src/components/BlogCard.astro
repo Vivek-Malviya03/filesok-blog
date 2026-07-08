@@ -10,7 +10,7 @@ interface Props {
 const { title, description, pubDate, slug, tags, readingMins } = Astro.props;
 const formattedDate = pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 const primaryTag = tags?.[0] ?? 'guide';
-const articleUrl = '/blog/' + slug + '/';
+const articleUrl = `https://www.filesok.com/blog/${slug}/`;
 ---
 <a href={articleUrl} class="blog-card">
   <div class="card-top">
